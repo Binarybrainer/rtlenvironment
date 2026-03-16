@@ -1,0 +1,60 @@
+`include "utils/tb/tb_utils.sv"
+
+module half_adder_tb;
+
+reg a;
+reg b;
+
+wire sum;
+wire cout;
+
+integer i;
+
+half_adder dut (
+    .a(a),
+    .b(b),
+    .sum(sum),
+    .cout(cout)
+);
+
+// auto dump waveform
+`DUMP_WAVE(half_adder_tb)
+
+
+task run_random_test;
+
+begin
+
+    for(i=0;i<20;i++) begin
+
+        `RAND_RANGE(a,0,1);
+        `RAND_RANGE(b,0,1);
+
+        #1;
+
+        `ASSERT_EQ({cout,sum}, a+b);
+
+        `RANDOM_DELAY(5);
+
+    end
+
+end
+
+endtask
+
+
+initial begin
+
+    `TEST_START
+
+    run_random_test();
+
+    `TEST_PASS
+
+    `TEST_FINISH
+
+    #10 $finish;
+
+end
+
+endmodule

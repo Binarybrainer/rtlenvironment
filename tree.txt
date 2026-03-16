@@ -1,0 +1,62 @@
+.
+├── README.md
+├── build
+│   ├── adder_tb.vvp
+│   ├── dff_tb.vvp
+│   └── multiplexer_tb.vvp
+├── lib
+│   └── adder
+│       ├── rtl
+│       │   └── adder.v
+│       ├── run
+│       │   └── run_add.sh
+│       └── tb
+│           └── adder_tb.sv
+├── primitives
+│   ├── arithmetic
+│   │   ├── full_adder
+│   │   │   ├── rtl
+│   │   │   │   └── full_adder.v
+│   │   │   ├── run
+│   │   │   │   └── run_add.sh
+│   │   │   └── tb
+│   │   │       └── full_adder_tb.sv
+│   │   └── multiplexer
+│   │       ├── rtl
+│   │       │   └── multiplexer.v
+│   │       ├── run
+│   │       │   └── run_multiplexer.sh
+│   │       └── tb
+│   │           └── multiplexer_tb.sv
+│   └── sequential
+│       ├── dffre
+│       │   ├── rtl
+│       │   │   └── dffre.v
+│       │   ├── run
+│       │   │   └── run_dffre.sh
+│       │   └── tb
+│       │       └── dffre_tb.sv
+│       └── latch
+│           ├── rtl
+│           │   └── latchre.v
+│           ├── run
+│           │   └── run_latchre.sh
+│           └── tb
+│               └── latchre_tb.sv
+├── python
+│   ├── run_test.py
+│   ├── test_modules
+│   │   └── adder_test.py
+│   └── utils
+│       └── sim_runner.py
+├── sim
+│   └── waveform
+│       ├── adder_tb.vcd
+│       ├── dff_tb.vcd
+│       └── multiplexer_tb.vcd
+├── tree.txt
+└── utils
+    └── tb
+        └── tb_utils.sv
+
+32 directories, 27 files
