@@ -1,27 +1,28 @@
-`include "tb_utils.sv"
+`include "utils/tb/tb_utils.sv"
 
 module adder_tb;
 
-reg a;
-reg b;
-reg cin;
+parameter WIDTH = 32;
 
-wire sum;
-wire cout;
+// 1. Signals
+reg  [WIDTH-1:0] a, b;
+reg  ci;
+wire [WIDTH-1:0] sum;
+wire co;
 
-integer i;
-
-adder dut (
+// 2. Instantiate module under test (MUT)
+adder #(.WIDTH(WIDTH)) uut (
     .a(a),
     .b(b),
-    .cin(cin),
+    .ci(ci),
     .sum(sum),
-    .cout(cout)
+    .co(co)
 );
 
 // auto dump waveform
 `DUMP_WAVE(adder_tb)
 
+integer i;
 
 task run_random_test;
 
@@ -29,13 +30,13 @@ begin
 
     for(i=0;i<20;i++) begin
 
-        `RAND_RANGE(a,0,1);
-        `RAND_RANGE(b,0,1);
-        `RAND_RANGE(cin,0,1);
+        `RAND_RANGE(a,0,10);
+        `RAND_RANGE(b,0,10);
+        `RAND_RANGE(ci,0,1);
 
         #1;
 
-        `ASSERT_EQ({cout,sum}, a+b+cin);
+        `ASSERT_EQ({co,sum}, a+b+ci);
 
         `RANDOM_DELAY(5);
 
