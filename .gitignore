@@ -1,0 +1,19 @@
+# build artifacts
+build/
+*.vvp
+
+# simulation output
+sim/
+*.vcd
+
+# python cache
+__pycache__/
+*.pyc
+
+# editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
