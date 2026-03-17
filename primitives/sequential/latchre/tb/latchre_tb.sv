@@ -3,7 +3,6 @@
 module latch_tb;
 
 reg d;
-reg clk;
 reg rst_n;
 reg en;
 
@@ -11,23 +10,27 @@ wire q;
 
 integer i;
 
-latch dut (.*);
+latchre dut (
+    .d(d),
+    .en(en),
+    .q(q),
+    .rst_n(rst_n)
+);
 
 // auto dump waveform
 `DUMP_WAVE(latch_tb)
 
 
-task run_clk;
+task run_en;
 begin
     fork
-        forever #5 clk = ~clk;
+        forever #5 en = ~en;
     join_none
 end
 endtask
 
 task init_value;
 begin
-    clk = 0;
     rst_n = 1;
     d = 0;
     en = 1;
@@ -38,7 +41,7 @@ endtask //automatic
 task release_reset;
     input integer duration;
 begin
-    repeat(duration) @(posedge clk);
+    repeat(duration) @(posedge en);
     rst_n = 1;
 end
 endtask
@@ -64,7 +67,7 @@ initial begin
     `TEST_START
 
     init_value();
-    run_clk();
+    run_en();
     release_reset(5);
     run_random_test();
 

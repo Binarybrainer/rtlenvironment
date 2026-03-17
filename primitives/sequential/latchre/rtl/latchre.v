@@ -1,7 +1,6 @@
-module latch (
+module latchre (
     input d,
     input rst_n,
-    input clk,
     input en,
 
     output reg q

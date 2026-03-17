@@ -1,6 +1,6 @@
-`include "primitives/full_adder/rtl/full_adder.v"
+`include "primitives/arithmetic/full_adder/rtl/full_adder.v"
 
-module adder #(
+module ripple_carry_adder #(
     parameter WIDTH = 32
 ) (
     input [WIDTH-1:0] a,

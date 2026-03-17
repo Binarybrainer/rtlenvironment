@@ -1,6 +1,6 @@
 `include "utils/tb/tb_utils.sv"
 
-module adder_tb;
+module carry_look_ahead_adder_tb;
 
 parameter WIDTH = 32;
 
@@ -11,7 +11,7 @@ wire [WIDTH-1:0] sum;
 wire co;
 
 // 2. Instantiate module under test (MUT)
-adder #(.WIDTH(WIDTH)) uut (
+carry_look_ahead_adder #(.WIDTH(WIDTH)) uut (
     .a(a),
     .b(b),
     .ci(ci),
@@ -20,7 +20,7 @@ adder #(.WIDTH(WIDTH)) uut (
 );
 
 // auto dump waveform
-`DUMP_WAVE(adder_tb)
+`DUMP_WAVE(carry_look_ahead_adder_tb)
 
 integer i;
 

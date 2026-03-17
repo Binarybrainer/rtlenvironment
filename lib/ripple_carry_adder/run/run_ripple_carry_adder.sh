@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MODULE=latch
-BASE=primitives/sequential/$MODULE
+MODULE=ripple_carry_adder
+BASE=lib/$MODULE
 
 mkdir -p build
 
