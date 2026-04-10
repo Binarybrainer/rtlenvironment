@@ -440,3 +440,5 @@ Automation → Python
 3. Copy input output of core.register_file from spec
 4. Copy input output of core.alu from spec
 5. Copy input output of core from spec
+6. Complete register file
+7. 

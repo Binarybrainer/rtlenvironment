@@ -33,7 +33,11 @@ control_logic(
     
 
 );
-alu();
+alu(
+    .alu_in1(alu_in1),
+    .alu_in2(alu_in2),
+    .alu_out(alu_out),
+);
 lsu();
 
 
